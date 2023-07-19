@@ -1,39 +1,36 @@
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React from 'react';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { useDispatch, useSelector } from 'react-redux';
+import { setUserTo } from '../app/slices/userSlice';
 import { auth } from '../firebase/firebase';
 
 const Navbar = () => {
-	const [user] = useAuthState(auth);
-	const provider = new GoogleAuthProvider();
+	const user = useSelector((state) => state.user.value);
+	const dispatch = useDispatch();
+
 	const googleSignIn = () => {
 		const provider = new GoogleAuthProvider();
+
 		signInWithPopup(auth, provider)
 			.then((result) => {
-				// This gives a Google Access Token. Can use it to access the Google API.
-				const credential = GoogleAuthProvider.credentialFromResult(result);
-				const token = credential.accessToken;
-				// The signed-in user info.
 				const user = result.user;
-				console.log('SUCCESS', credential, token, user);
+				dispatch(setUserTo(user.providerData[0]));
 			})
 			.catch((error) => {
-				// Handle Errors here.
 				const errorCode = error.code;
 				const errorMessage = error.message;
-				// The email of the user's account used.
 				const email = error.customData.email;
-				// The AuthCredential type that was used.
 				const credential = GoogleAuthProvider.credentialFromError(error);
-				console.log('FAIL', errorCode, errorMessage, email, credential);
+				dispatch(setUserTo({ errorCode, errorMessage, email, credential }));
 			});
 	};
 
 	const signOut = () => {
 		auth.signOut();
+		dispatch(setUserTo(null));
 	};
 
-	console.log('NAVBAR', auth, provider);
+	console.log('NAVBAR', user);
 
 	return (
 		<div className='container flex justify-between px-5 py-3 bg-black text-white drop-shadow-xl items-center'>
