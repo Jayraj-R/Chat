@@ -1,3 +1,23 @@
 .App {
-    text-align: center;
+	text-align: center;
+}
+
+.curr-user-message::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	right: 0;
+	transform: translateX(100%);
+	border: 10px solid transparent;
+	border-left-color: #fbfdff;
+}
+
+.other-user-message::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	transform: translateX(-100%);
+	border: 10px solid transparent;
+	border-right-color: #fbfdff;
 }

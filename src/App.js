@@ -1,25 +1,19 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import './App.css';
+import ChatBox from './components/ChatBox';
 import Navbar from './components/Navbar';
+import Welcome from './components/Welcome';
 
 function App() {
 	const user = useSelector((state) => state.user.value);
-	console.log('APP', user);
-	
+
 	return (
-		<div className='App flex-auto p-0 m-0 w-screen'>
+		<div className='flex flex-column p-0 m-0 w-screen h-screen'>
 			<section className='navbar_container p-0 m-0 w-screen'>
 				<Navbar />
 			</section>
-			<div className='body__container flex flex-row h-screen p-0 m-0 w-screen'>
-				<section className='left__pane__container container w-1/4'>
-					Left pane
-				</section>
-				<section className='right__pane__container container bg-gray-light p-0 m-0'>
-					Right pane
-				</section>
-			</div>
+			{!user && !user?.errorCode ? <Welcome /> : <ChatBox />}
 		</div>
 	);
 }
