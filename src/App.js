@@ -8,15 +8,15 @@ function App() {
 	console.log('APP', user);
 	
 	return (
-		<div className='App container mx-auto flex-auto'>
-			<section className='navbar_container container mx-auto'>
+		<div className='App flex-auto p-0 m-0 w-screen'>
+			<section className='navbar_container p-0 m-0 w-screen'>
 				<Navbar />
 			</section>
-			<div className='body__container container mx-auto flex flex-row h-screen'>
+			<div className='body__container flex flex-row h-screen p-0 m-0 w-screen'>
 				<section className='left__pane__container container w-1/4'>
 					Left pane
 				</section>
-				<section className='right__pane__container container bg-gray-light'>
+				<section className='right__pane__container container bg-gray-light p-0 m-0'>
 					Right pane
 				</section>
 			</div>

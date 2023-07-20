@@ -1,5 +1,12 @@
+import {
+	CDropdown,
+	CDropdownItem,
+	CDropdownMenu,
+	CDropdownToggle,
+} from '@coreui/react';
 import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import React from 'react';
+import { FiUser } from 'react-icons/fi';
 import { useDispatch, useSelector } from 'react-redux';
 import { setUserTo } from '../app/slices/userSlice';
 import { auth } from '../firebase/firebase';
@@ -33,21 +40,40 @@ const Navbar = () => {
 	console.log('NAVBAR', user);
 
 	return (
-		<div className='container flex justify-between px-5 py-3 bg-black text-white drop-shadow-xl items-center'>
+		<div className='flex justify-between px-5 py-3 bg-black text-white drop-shadow-xl items-center'>
 			<section className='logo__section text-3xl'>Chat-e</section>
 			{user ? (
-				<button onClick={signOut} className='sign-out' type='button'>
-					Sign Out
-				</button>
+				<section className='user__section stroke-5 hover:stroke-2'>
+					{user.photoURL ? (
+						<CDropdown>
+							<CDropdownToggle
+								caret={false}
+								autoClose={true}
+								variant='nav-item'
+								style={{ padding: '0rem' }}
+							>
+								<img
+									className='w-8 rounded-full'
+									src={user.photoURL}
+									alt={user.displayName}
+								/>
+							</CDropdownToggle>
+							<CDropdownMenu>
+								<CDropdownItem onClick={signOut}>Sign Out</CDropdownItem>
+							</CDropdownMenu>
+						</CDropdown>
+					) : (
+						<FiUser size={25} />
+					)}
+				</section>
 			) : (
 				<button
-					className='signin__button rounded-full bg-white text-black px-5 py-1'
+					className='signin__button rounded-full bg-white text-black md:px-5 px-3 py-1'
 					onClick={googleSignIn}
 				>
 					Sign In
 				</button>
 			)}
-			<section className='user__section'> User</section>
 		</div>
 	);
 };
