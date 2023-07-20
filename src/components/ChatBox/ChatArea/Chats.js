@@ -46,10 +46,10 @@ const Chats = () => {
 		<div className='bg-blue-light w-100 flex flex-column items-center px-3 py-2 gap-2 overflow-auto h-100'>
 			{messages?.map((message) => (
 				<div
-					className={`flex justify-center items-center gap-3 ${
+					className={`flex justify-center items-center gap-3 text-left ${
 						message.uid === user.uid
-							? 'self-end flex-row-reverse text-right'
-							: 'self-start text-left'
+							? 'self-end flex-row-reverse'
+							: 'self-start'
 					}`}
 				>
 					<img
@@ -66,7 +66,7 @@ const Chats = () => {
 					>
 						<p className='text-gray text-xs'>{message.name}</p>
 						<p className='text-black'>{message.text}</p>
-						<p className='text-gray text-xs'>
+						<p className='text-gray text-xs text-right'>
 							{firebaseTimestampToTime(message.createdAt)}
 						</p>
 					</div>
