@@ -10,7 +10,7 @@ module.exports = {
 			'gray-light': '#C3CED3',
 			'gray-dark': '#3d4347',
 			'brown-golden': '#cb8000',
-			'brown-light': '#ffb544',
+			'brown-light': '#fbf4d7',
 		},
 		fontFamily: {
 			sans: ['Graphik', 'sans-serif'],

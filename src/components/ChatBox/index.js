@@ -5,10 +5,10 @@ import ChatList from './ChatList';
 const ChatBox = () => {
 	return (
 		<div className='body__container flex flex-1 flex-row p-0 m-0 w-screen'>
-			<section className='left__pane__container container w-1/4'>
+			{/* <section className='left__pane__container container w-1/4	'>
 				<ChatList />
-			</section>
-			<section className='right__pane__container container bg-gray-light p-0 m-0'>
+			</section> */}
+			<section className='right__pane__container bg-gray-light p-0 m-0 w-100 h-100'>
 				<ChatArea />
 			</section>
 		</div>

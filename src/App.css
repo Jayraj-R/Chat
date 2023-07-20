@@ -9,7 +9,7 @@
 	right: 0;
 	transform: translateX(100%);
 	border: 10px solid transparent;
-	border-left-color: #fbfdff;
+	border-left-color: #fbf4d7;
 }
 
 .other-user-message::after {

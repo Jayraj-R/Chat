@@ -43,10 +43,7 @@ const Chats = () => {
 	console.log(scroll.current);
 
 	return (
-		<div
-			className='bg-blue-light w-100 flex flex-column items-center px-3 py-2 gap-2 overflow-auto'
-			style={{ maxHeight: window.screen.availHeight - 250 }}
-		>
+		<div className='bg-blue-light w-100 flex flex-column items-center px-3 py-2 gap-2 overflow-auto h-100'>
 			{messages?.map((message) => (
 				<div
 					className={`flex justify-center items-center gap-3 ${
@@ -61,10 +58,10 @@ const Chats = () => {
 						alt='avatar'
 					/>
 					<div
-						className={`w-fit max-w-xs bg-white py-1 drop-shadow-md rounded-md ${
+						className={`w-fit max-w-xs py-1 drop-shadow-md rounded-md ${
 							message.uid === user.uid
-								? 'curr-user-message rounded-tr-none pr-2 pl-3'
-								: 'other-user-message rounded-tl-none pr-3 pl-2'
+								? 'curr-user-message rounded-tr-none pr-2 pl-3 bg-brown-light'
+								: 'other-user-message rounded-tl-none pr-3 pl-2  bg-white'
 						}`}
 					>
 						<p className='text-gray text-xs'>{message.name}</p>
