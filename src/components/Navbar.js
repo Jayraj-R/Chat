@@ -37,20 +37,18 @@ const Navbar = () => {
 		dispatch(setUserTo(null));
 	};
 
-	console.log('NAVBAR', user);
-
 	return (
-		<div className='flex justify-between px-5 py-3 bg-black text-white drop-shadow-xl items-center'>
-			<section className='logo__section text-3xl'>Chat-e</section>
+		<div className='flex justify-between items=center px-5 py-3 bg-black text-white drop-shadow-xl'>
+			<section className='text-3xl'>Chat-e</section>
 			{user ? (
-				<section className='user__section stroke-5 hover:stroke-2'>
+				<section>
 					{user.photoURL ? (
 						<CDropdown>
 							<CDropdownToggle
+								className='p-0 rounded-circle border-0'
 								caret={false}
 								autoClose={true}
 								variant='nav-item'
-								style={{ padding: '0rem' }}
 							>
 								<img
 									className='w-8 rounded-full'
@@ -68,7 +66,7 @@ const Navbar = () => {
 				</section>
 			) : (
 				<button
-					className='signin__button rounded-full bg-white text-black md:px-5 px-3 py-1'
+					className='rounded-full bg-white text-black md:px-5 px-3 py-1'
 					onClick={googleSignIn}
 				>
 					Sign In

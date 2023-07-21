@@ -32,7 +32,7 @@ const MessagingArea = () => {
 	};
 
 	return (
-		<div className='w-100 h-fit py-3 flex justify-center items-center gap-2'>
+		<div className='h-fit py-3 flex justify-center items-center gap-2'>
 			<CFormInput
 				className='w-4/5'
 				type='text'

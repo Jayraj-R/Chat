@@ -9,8 +9,8 @@ function App() {
 	const user = useSelector((state) => state.user.value);
 
 	return (
-		<div className='flex flex-column p-0 m-0 w-screen h-screen'>
-			<section className='navbar_container p-0 m-0 w-screen'>
+		<div className='flex flex-column h-screen position-relative'>
+			<section className='w-screen z-1'>
 				<Navbar />
 			</section>
 			{!user && !user?.errorCode ? <Welcome /> : <ChatBox />}

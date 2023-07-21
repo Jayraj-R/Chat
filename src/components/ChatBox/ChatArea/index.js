@@ -4,7 +4,7 @@ import MessagingArea from './MessagingArea';
 
 const ChatArea = () => {
 	return (
-		<div className='flex flex-column items-center h-100 w-100'>
+		<div className='flex flex-column h-100 w-100'>
 			<Chats /> <MessagingArea />
 		</div>
 	);

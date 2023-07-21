@@ -35,18 +35,14 @@ const Chats = () => {
 	}, []);
 
 	useEffect(() => {
-		console.log('BEFORE');
 		scroll.current?.scrollIntoView({ behavior: 'smooth' });
-		console.log('AFTER');
 	}, [messages]);
 
-	console.log(scroll.current);
-
 	return (
-		<div className='bg-blue-light w-100 flex flex-column items-center px-3 py-2 gap-2 overflow-auto h-100'>
+		<div className='bg-blue-light flex flex-1 flex-column px-3 py-2 gap-2 overflow-auto'>
 			{messages?.map((message) => (
 				<div
-					className={`flex justify-center items-center gap-3 text-left ${
+					className={`flex justify-center gap-3 text-left ${
 						message.uid === user.uid
 							? 'self-end flex-row-reverse'
 							: 'self-start'
@@ -61,7 +57,7 @@ const Chats = () => {
 						className={`w-fit max-w-xs py-1 drop-shadow-md rounded-md ${
 							message.uid === user.uid
 								? 'curr-user-message rounded-tr-none pr-2 pl-3 bg-brown-light'
-								: 'other-user-message rounded-tl-none pr-3 pl-2  bg-white'
+								: 'other-user-message rounded-tl-none pr-3 pl-2 bg-white'
 						}`}
 					>
 						<p className='text-gray text-xs'>{message.name}</p>

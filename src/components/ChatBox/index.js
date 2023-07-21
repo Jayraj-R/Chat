@@ -1,14 +1,13 @@
 import React from 'react';
 import ChatArea from './ChatArea';
-import ChatList from './ChatList';
 
 const ChatBox = () => {
 	return (
-		<div className='body__container flex flex-1 flex-row p-0 m-0 w-screen'>
-			{/* <section className='left__pane__container container w-1/4	'>
+		<div className='flex flex-1 flex-row h-1'>
+			{/* <section className='w-1/4 h-100'>
 				<ChatList />
 			</section> */}
-			<section className='right__pane__container bg-gray-light p-0 m-0 w-100 h-100'>
+			<section className='bg-gray-light w-100 h-100 flex flex-column'>
 				<ChatArea />
 			</section>
 		</div>
